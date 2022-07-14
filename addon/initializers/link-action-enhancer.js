@@ -1,4 +1,4 @@
-import LinkComponent from '@ember/routing/link-component';
+import { LinkTo } from "@ember/routing";
 
 export const LinkActionOverride = {
   init() {
@@ -22,14 +22,14 @@ export const LinkActionOverride = {
   },
   _detachActionEvent() {
     this.off(this.eventName, this, this._sendInvokeAction);
-  }
+  },
 };
 
 export function initialize() {
-  LinkComponent.reopen(LinkActionOverride);
+  LinkTo.reopen(LinkActionOverride);
 }
 
 export default {
-  name: 'link-action-enhancer',
-  initialize
+  name: "link-action-enhancer",
+  initialize,
 };
